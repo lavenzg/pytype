@@ -153,6 +153,7 @@ class PytypeRunner(object):
         '-V': self.python_version,
         '-o': '$out',
         '--module-name': '$module',
+        '--output-errors-csv': '${module}_errors.csv',  # zhaogang92, add flag for saving errors csv
     }
     binary_flags = {
         '--quick',

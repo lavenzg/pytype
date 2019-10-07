@@ -535,8 +535,10 @@ class Postprocessor(object):
 
   @uses(["report_errors"])
   def _store_output_errors_csv(self, output_errors_csv):
-    if output_errors_csv and not self.output_options.report_errors:
-      self.error("Not allowed with --no-report-errors", "output-errors-csv")
+    # zhaogang92
+    # supress this error as it will fail pytype when executing infer tasks
+    # if output_errors_csv and not self.output_options.report_errors:
+    #  self.error("Not allowed with --no-report-errors", "output-errors-csv")
     self.output_options.output_errors_csv = output_errors_csv
 
   @uses(["input", "pythonpath"])
